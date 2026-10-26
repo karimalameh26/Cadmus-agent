@@ -19,7 +19,7 @@ human-verified answers. Bring JSON records or local files, connect a model, and 
 
 Changing a prompt is easy. Knowing whether it actually got better is the hard part.
 
-- **Use the data you have.** Classify mapped OCR, descriptions and metadata from JSON, or local images, text and PDFs.
+- **Use the data you have.** Classify files of any type using metadata, descriptions, or extracted content supplied as JSON, or open supported local images, PDFs, and text documents directly.
 - **Test instead of guessing.** Compare generated guidance and few-shot examples against trusted labels.
 - **Keep the current version when evidence is weak.** Promotion requires independent evaluation and regression gates.
 - **Inspect and recover.** Review predictions, prompt diffs and run reports; roll back after a verified quality drop.
@@ -142,14 +142,12 @@ There is also a [CLI walkthrough](docs/guide.md#try-it-offline).
 
 ## Documentation
 
-| Topic | Guide |
-| --- | --- |
-| JSON records and local files | [Input modes and mappings](docs/guide.md#input-modes) |
-| Reviewed labels and prompt evaluation | [Improvement cycles](docs/guide.md#run-an-improvement-cycle) |
-| Provider settings and cost limits | [Model providers](docs/guide.md#model-providers) |
-| Logs, reports and interrupted runs | [Observability](docs/guide.md#observability) |
-| CLI commands | [Command reference](docs/guide.md#commands) |
-| Tests and package structure | [Development](docs/guide.md#development) |
+- [Input modes and mappings](docs/guide.md#input-modes): metadata, JSON records, and local files.
+- [Improvement cycles](docs/guide.md#run-an-improvement-cycle): reviewed labels and prompt evaluation.
+- [Model providers](docs/guide.md#model-providers): provider settings and cost limits.
+- [Observability](docs/guide.md#observability): logs, reports, and interrupted runs.
+- [Command reference](docs/guide.md#commands): CLI commands.
+- [Development](docs/guide.md#development): tests and package structure.
 
 ## Limitations
 

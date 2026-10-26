@@ -22,12 +22,26 @@ jobs:
       - run: python -m mypy
       - run: python -m pytest
       - name: Build and smoke-test the installed wheel
-        shell: bash
+        shell: python {0}
         run: |
-          python -m build --wheel
-          python -m venv /tmp/wheel-env || python -m venv wheel-env
-          WHEEL_PY=$( [ -x /tmp/wheel-env/bin/python ] && echo /tmp/wheel-env/bin/python || echo wheel-env/Scripts/python )
-          $WHEEL_PY -m pip install "$(ls dist/*.whl)[files]"
-          cd examples/json_records
-          $WHEEL_PY -m cadmus config validate
-          $WHEEL_PY -m cadmus -q dataset import records_batch1.json --verified-by reviewer-1
+          import os
+          import subprocess
+          import sys
+          import tempfile
+          from pathlib import Path
+
+          subprocess.run([sys.executable, "-m", "build", "--wheel"], check=True)
+          wheel = next(Path("dist").glob("cadmus-*.whl")).resolve()
+          examples = Path("examples/json_records").resolve()
+          with tempfile.TemporaryDirectory(prefix="cadmus-wheel-") as temporary:
+              environment = Path(temporary) / "venv"
+              subprocess.run([sys.executable, "-m", "venv", str(environment)], check=True)
+              executable = environment / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+              subprocess.run([str(executable), "-m", "pip", "install", f"{wheel}[files]"], check=True)
+              subprocess.run([str(executable), "-m", "cadmus", "config", "validate"], cwd=examples, check=True)
+              subprocess.run(
+                  [str(executable), "-m", "cadmus", "-q", "dataset", "import",
+                   "records_batch1.json", "--verified-by", "reviewer-1"],
+                  cwd=examples,
+                  check=True,
+              )

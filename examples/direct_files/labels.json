@@ -1,0 +1,5 @@
+[
+  {"name": "invoice_01.txt", "labels": ["invoice"]},
+  {"name": "receipt_01.txt", "labels": ["receipt"]},
+  {"name": "contract_01.txt", "labels": ["contract"]}
+]

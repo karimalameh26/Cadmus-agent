@@ -1,0 +1,14 @@
+{
+  "scan_keyed_001.png": {
+    "ocr": {"text": "Invoice remittance total amount date"},
+    "vision": {"description": "scanned page with a logo and a table", "features": {"has_table": true}},
+    "meta": {"source": "scanner-a", "pages": 1},
+    "ground_truth": "invoice"
+  },
+  "scan_keyed_002.png": {
+    "ocr": {"text": "Receipt cashier change customer number"},
+    "vision": {"description": "photo of a printed page", "features": {"has_table": false}},
+    "meta": {"source": "mobile", "pages": 1},
+    "ground_truth": "receipt"
+  }
+}

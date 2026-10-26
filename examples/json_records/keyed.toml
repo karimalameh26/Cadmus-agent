@@ -1,0 +1,23 @@
+# Keyed JSON variant: { "<image name>": { ...nested metadata... } }. Dotted paths address nested fields.
+client_id = "demo-keyed"
+data_dir = ".ag-agent"
+reviewers = ["reviewer-1"]
+
+[task]
+name = "doc-type"
+labels = ["invoice", "receipt", "contract"]
+critical_labels = ["contract"]
+
+[input]
+mode = "json_records"
+
+[input.json]
+shape = "keyed"
+text_fields = ["ocr.text"]
+description_fields = ["vision.description"]
+feature_fields = ["vision.features"]
+metadata_fields = ["meta"]
+label_field = "ground_truth"
+
+[provider]
+kind = "fake"

@@ -1,0 +1,47 @@
+# Demo configuration. Thresholds are demonstrations only, not recommendations for client data.
+client_id = "demo"
+data_dir = ".ag-agent"
+reviewers = ["reviewer-1", "reviewer-2"]
+
+[task]
+name = "doc-type"
+kind = "single_label"
+labels = ["invoice", "receipt", "contract"]
+critical_labels = ["contract"]
+baseline_guidance = "Classify the document by its business document type."
+
+[input]
+mode = "json_records"
+
+[input.json]
+shape = "array"
+id_field = "image_name"
+text_fields = ["ocr_text"]
+description_fields = ["image_description"]
+metadata_fields = ["metadata"]
+label_field = "label"
+
+[provider]
+kind = "fake"
+
+[optimizer]
+candidates_per_round = 4
+max_rounds = 5
+patience = 2
+max_examples = 3
+seed = 7
+
+[policy]
+version = "demo-1"
+primary_metric = "macro_f1"
+min_gain = 0.02
+confidence = 0.9
+bootstrap_resamples = 500
+min_gate_groups = 10
+min_class_support = 2
+absolute_floor = 0.5
+min_coverage = 0.8
+
+[monitor]
+min_samples = 10
+cooldown_hours = 0

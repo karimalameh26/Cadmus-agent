@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[files,dev]"
+      - run: python -m ruff check src tests
+      - run: python -m mypy
+      - run: python -m pytest
+      - name: Build and smoke-test the installed wheel
+        shell: bash
+        run: |
+          python -m build --wheel
+          python -m venv /tmp/wheel-env || python -m venv wheel-env
+          WHEEL_PY=$( [ -x /tmp/wheel-env/bin/python ] && echo /tmp/wheel-env/bin/python || echo wheel-env/Scripts/python )
+          $WHEEL_PY -m pip install "$(ls dist/*.whl)[files]"
+          cd examples/json_records
+          $WHEEL_PY -m ag_agent config validate
+          $WHEEL_PY -m ag_agent -q dataset import records_batch1.json --verified-by reviewer-1

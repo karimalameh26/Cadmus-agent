@@ -1,0 +1,902 @@
+[
+  {
+    "image_name": "scan_20001.png",
+    "ocr_text": "Total number period invoice customer remittance page signature.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20002.png",
+    "ocr_text": "Amount total period date signature receipt purchase account.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20003.png",
+    "ocr_text": "Reference agreement company account signature hereby number period.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20004.png",
+    "ocr_text": "Period document signature invoice office payable total amount.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20005.png",
+    "ocr_text": "Office account invoice reference company billing number page.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20006.png",
+    "ocr_text": "Remittance page company invoice date signature period number.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20007.png",
+    "ocr_text": "Account customer page company receipt cashier reference office.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20008.png",
+    "ocr_text": "Reference company cashier office purchase amount number account.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20009.png",
+    "ocr_text": "Company signature period parties account page document hereby.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20010.png",
+    "ocr_text": "Reference cashier office company signature date customer change.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20011.png",
+    "ocr_text": "Page address parties total company agreement amount signature.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20012.png",
+    "ocr_text": "Billing period address date company payable amount signature.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20013.png",
+    "ocr_text": "Billing payable date company document account address reference.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20014.png",
+    "ocr_text": "Page number company parties document office termination reference.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20015.png",
+    "ocr_text": "Signature address company receipt total period cashier date.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20016.png",
+    "ocr_text": "Cashier company office customer page number signature purchase.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20017.png",
+    "ocr_text": "Amount account hereby company document period number parties.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20018.png",
+    "ocr_text": "Page document receipt address change number office account.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20019.png",
+    "ocr_text": "Address payable reference amount date number account invoice.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20020.png",
+    "ocr_text": "Purchase date office change customer document account address.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20021.png",
+    "ocr_text": "Termination date page address agreement amount reference office.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20022.png",
+    "ocr_text": "Signature agreement address termination page office account company.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20023.png",
+    "ocr_text": "Office hereby page amount account address parties date.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20024.png",
+    "ocr_text": "Document customer address parties termination page account signature.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20025.png",
+    "ocr_text": "Address document number billing total amount office invoice.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20026.png",
+    "ocr_text": "Page address office customer remittance billing document signature.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20027.png",
+    "ocr_text": "Number address total billing account company remittance signature.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20028.png",
+    "ocr_text": "Address number termination parties reference customer company signature.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20029.png",
+    "ocr_text": "Amount office page change total receipt account company.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20030.png",
+    "ocr_text": "Amount office total termination date period agreement signature.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20031.png",
+    "ocr_text": "Document receipt company account office page cashier number.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20032.png",
+    "ocr_text": "Number termination parties office amount account total company.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20033.png",
+    "ocr_text": "Signature address total document page customer termination agreement.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20034.png",
+    "ocr_text": "Signature payable customer number date invoice office page.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20035.png",
+    "ocr_text": "Account signature total number customer amount parties hereby.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20036.png",
+    "ocr_text": "Remittance account date invoice signature number amount document.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20037.png",
+    "ocr_text": "Date hereby office agreement address company document customer.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20038.png",
+    "ocr_text": "Date document agreement reference signature termination office company.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20039.png",
+    "ocr_text": "Amount period payable total customer reference office remittance.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20040.png",
+    "ocr_text": "Company parties termination total date number document office.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20041.png",
+    "ocr_text": "Period change document total cashier customer account number.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20042.png",
+    "ocr_text": "Number page total receipt account office purchase period.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20043.png",
+    "ocr_text": "Billing total customer date document account address remittance.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20044.png",
+    "ocr_text": "Total document change receipt amount company page customer.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20045.png",
+    "ocr_text": "Customer date cashier address page account receipt amount.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20046.png",
+    "ocr_text": "Company parties document office agreement total amount address.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20047.png",
+    "ocr_text": "Date change page purchase amount signature office document.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20048.png",
+    "ocr_text": "Receipt period cashier signature total amount office date.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20049.png",
+    "ocr_text": "Customer page account reference company amount agreement hereby.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20050.png",
+    "ocr_text": "Address number company office agreement signature hereby account.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20051.png",
+    "ocr_text": "Payable document billing period date number total office.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20052.png",
+    "ocr_text": "Address amount receipt period company office date change.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20053.png",
+    "ocr_text": "Billing account document page payable signature address company.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20054.png",
+    "ocr_text": "Agreement termination period number office account document page.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20055.png",
+    "ocr_text": "Date customer period account termination total agreement reference.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20056.png",
+    "ocr_text": "Purchase company total reference period page receipt amount.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20057.png",
+    "ocr_text": "Payable document signature account company invoice page customer.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20058.png",
+    "ocr_text": "Hereby reference termination signature date number office page.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20059.png",
+    "ocr_text": "Document page address total invoice date amount remittance.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20060.png",
+    "ocr_text": "Document signature page reference remittance amount billing total.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20061.png",
+    "ocr_text": "Signature reference invoice address total payable page customer.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20062.png",
+    "ocr_text": "Amount document parties number date page hereby customer.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20063.png",
+    "ocr_text": "Purchase date reference address amount change customer page.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20064.png",
+    "ocr_text": "Period signature customer receipt amount purchase total document.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20065.png",
+    "ocr_text": "Customer purchase company number receipt office document amount.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20066.png",
+    "ocr_text": "Agreement number total office parties document amount account.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20067.png",
+    "ocr_text": "Address payable customer date invoice account signature total.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20068.png",
+    "ocr_text": "Reference amount cashier receipt number signature total date.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20069.png",
+    "ocr_text": "Period signature office agreement parties company amount number.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20070.png",
+    "ocr_text": "Date billing page signature total number address invoice.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20071.png",
+    "ocr_text": "Document cashier office reference change customer signature account.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20072.png",
+    "ocr_text": "Change receipt amount total address company document account.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20073.png",
+    "ocr_text": "Address reference customer amount cashier account purchase number.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20074.png",
+    "ocr_text": "Total date remittance address account office invoice company.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20075.png",
+    "ocr_text": "Address signature company payable account office remittance period.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20076.png",
+    "ocr_text": "Number reference address office parties agreement company total.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20077.png",
+    "ocr_text": "Signature company address period date payable amount invoice.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 2
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20078.png",
+    "ocr_text": "Document customer reference account parties signature hereby date.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "mobile",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20079.png",
+    "ocr_text": "Receipt company cashier amount total page number period.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20080.png",
+    "ocr_text": "Parties document period customer office number agreement amount.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20081.png",
+    "ocr_text": "Payable document company account date page billing period.",
+    "image_description": "scanned page with a logo and a table",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20082.png",
+    "ocr_text": "Document reference receipt company period address purchase amount.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20083.png",
+    "ocr_text": "Address hereby signature parties company period amount number.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 3
+    },
+    "label": "contract"
+  },
+  {
+    "image_name": "scan_20084.png",
+    "ocr_text": "Number total period page change document receipt customer.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20085.png",
+    "ocr_text": "Address company customer change document total receipt account.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 3
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20086.png",
+    "ocr_text": "Number office signature account payable page reference invoice.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "mobile",
+      "pages": 3
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20087.png",
+    "ocr_text": "Cashier address customer reference document company receipt date.",
+    "image_description": "photo of a printed page",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "receipt"
+  },
+  {
+    "image_name": "scan_20088.png",
+    "ocr_text": "Page signature invoice date office payable company reference.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-b",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20089.png",
+    "ocr_text": "Date billing period company account amount payable customer.",
+    "image_description": "single page with stamps",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 1
+    },
+    "label": "invoice"
+  },
+  {
+    "image_name": "scan_20090.png",
+    "ocr_text": "Signature customer payable date billing reference address office.",
+    "image_description": "two-column printed layout",
+    "metadata": {
+      "source": "scanner-a",
+      "pages": 2
+    },
+    "label": "invoice"
+  }
+]

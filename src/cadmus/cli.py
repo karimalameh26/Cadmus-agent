@@ -15,10 +15,10 @@ from typing import Any, TypeVar
 
 import typer
 
-from ag_agent.config import initialize_config, load_config
-from ag_agent.errors import AgAgentError, ConfigError
-from ag_agent.observability import ConsoleSubscriber
-from ag_agent.runtime import Framework
+from cadmus.config import initialize_config, load_config
+from cadmus.errors import CadmusError, ConfigError
+from cadmus.observability import ConsoleSubscriber
+from cadmus.runtime import Framework
 
 app = typer.Typer(no_args_is_help=True, add_completion=False, help="Ground-truth-gated self-improving classifier.")
 config_app = typer.Typer(no_args_is_help=True, help="Configuration checks.")
@@ -39,7 +39,7 @@ F = TypeVar("F", bound=Callable[..., Any])
 
 @app.callback()
 def _root(ctx: typer.Context,
-          config: Path = typer.Option(Path("ag-agent.toml"), "--config", "-c", envvar="AG_AGENT_CONFIG",
+          config: Path = typer.Option(Path("cadmus.toml"), "--config", "-c", envvar="CADMUS_CONFIG",
                                       help="Path to the TOML configuration."),
           verbose: bool = typer.Option(False, "--verbose", "-v", help="Show per-document events on stderr."),
           quiet: bool = typer.Option(False, "--quiet", "-q", help="Only warnings and errors on stderr."),
@@ -65,7 +65,7 @@ def handled(fn: F) -> F:
     def wrapper(*args: Any, **kwargs: Any) -> Any:
         try:
             return fn(*args, **kwargs)
-        except AgAgentError as exc:
+        except CadmusError as exc:
             sys.stderr.write(f"error [{exc.code}]: {exc.message}\n")
             _out({"ok": False, "error": exc.to_dict()})
             raise typer.Exit(exc.exit_code) from None
@@ -367,7 +367,7 @@ def doctor(ctx: typer.Context, check_connectivity: bool = typer.Option(False, he
 @handled
 def demo_init(directory: Path = typer.Argument(Path("demo")), batch: int = typer.Option(1, min=1)) -> None:
     """Write a demo config and synthetic JSON records (batch 2+ provides fresh data for later cycles)."""
-    from ag_agent.demo import write_demo
+    from cadmus.demo import write_demo
     _out(write_demo(directory, batch))
 
 

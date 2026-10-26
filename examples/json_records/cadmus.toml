@@ -1,6 +1,6 @@
 # Demo configuration. Thresholds are demonstrations only, not recommendations for client data.
 client_id = "demo"
-data_dir = ".ag-agent"
+data_dir = ".cadmus"
 reviewers = ["reviewer-1", "reviewer-2"]
 
 [task]

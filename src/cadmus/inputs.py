@@ -13,11 +13,11 @@ from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Any, Protocol
 
-from ag_agent.config import AppConfig, JsonInputConfig
-from ag_agent.contracts import EvidenceRecord, InputMode, TextBlock, canonical_json, sha256_bytes, sha256_text
-from ag_agent.documents import SUPPORTED_EXTENSIONS, extract_file
-from ag_agent.errors import ConfigError, ExtractionError, InputError
-from ag_agent.storage import ArtifactStore
+from cadmus.config import AppConfig, JsonInputConfig
+from cadmus.contracts import EvidenceRecord, InputMode, TextBlock, canonical_json, sha256_bytes, sha256_text
+from cadmus.documents import SUPPORTED_EXTENSIONS, extract_file
+from cadmus.errors import ConfigError, ExtractionError, InputError
+from cadmus.storage import ArtifactStore
 
 
 @dataclass

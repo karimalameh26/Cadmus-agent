@@ -15,11 +15,11 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any, TextIO
 
-from ag_agent.contracts import SCHEMA_VERSION, utc_now
-from ag_agent.errors import AuditFailure
-from ag_agent.storage import Store
+from cadmus.contracts import SCHEMA_VERSION, utc_now
+from cadmus.errors import AuditFailure
+from cadmus.storage import Store
 
-logging.getLogger("ag_agent").addHandler(logging.NullHandler())
+logging.getLogger("cadmus").addHandler(logging.NullHandler())
 
 LEVELS = {"DEBUG": 10, "INFO": 20, "WARNING": 30, "ERROR": 40}
 
@@ -129,14 +129,14 @@ class EventEmitter:
                     conn.execute("UPDATE runs SET updated_at = ? WHERE run_id = ?", (event["timestamp"], self.run_id))
             except sqlite3.Error as exc:
                 self._seq -= 1
-                sys.stderr.write(f"ag-agent: durable audit write failed ({type(exc).__name__}); stopping\n")
+                sys.stderr.write(f"cadmus: durable audit write failed ({type(exc).__name__}); stopping\n")
                 raise AuditFailure("Durable event persistence failed; work stopped and champion unchanged") from None
             if self.exporter is not None:
                 try:
                     self.exporter.append(event)
                 except OSError as exc:
                     if not self._export_failed:
-                        sys.stderr.write(f"ag-agent: JSONL export failed ({type(exc).__name__}); events remain in "
+                        sys.stderr.write(f"cadmus: JSONL export failed ({type(exc).__name__}); events remain in "
                                          "the database and will be re-exported on recovery\n")
                     self._export_failed = True
         for sub in self.subscribers:
@@ -145,7 +145,7 @@ class EventEmitter:
             except Exception as exc:  # a broken subscriber must never affect run state
                 if id(sub) not in self._failed_subscribers:
                     self._failed_subscribers.add(id(sub))
-                    sys.stderr.write(f"ag-agent: event subscriber failed ({type(exc).__name__}); ignoring it\n")
+                    sys.stderr.write(f"cadmus: event subscriber failed ({type(exc).__name__}); ignoring it\n")
         return event
 
 

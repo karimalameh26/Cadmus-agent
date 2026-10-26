@@ -1,6 +1,6 @@
 # Keyed JSON variant: { "<image name>": { ...nested metadata... } }. Dotted paths address nested fields.
 client_id = "demo-keyed"
-data_dir = ".ag-agent"
+data_dir = ".cadmus"
 reviewers = ["reviewer-1"]
 
 [task]

@@ -15,8 +15,8 @@ from typing import Any, Protocol
 
 from pydantic import BaseModel, Field, ValidationError
 
-from ag_agent.config import AppConfig
-from ag_agent.contracts import (
+from cadmus.config import AppConfig
+from cadmus.contracts import (
     EvidenceRecord,
     FewShotExample,
     Prediction,
@@ -25,17 +25,17 @@ from ag_agent.contracts import (
     PromptBundle,
     utc_now,
 )
-from ag_agent.datasets import DatasetService, SnapshotItem
-from ag_agent.errors import BudgetExhausted
-from ag_agent.evaluation import build_report, paired_bootstrap
-from ag_agent.inference import Classifier
-from ag_agent.observability import EventEmitter
-from ag_agent.policy import decide
-from ag_agent.prompting import neutralize, render_evidence
-from ag_agent.providers import ModelRequest, ModelResponse, TextPart
-from ag_agent.registry import Registry, diff_bundles
-from ag_agent.storage import ArtifactStore
-from ag_agent.tasks import ClassificationTask, primary_score
+from cadmus.datasets import DatasetService, SnapshotItem
+from cadmus.errors import BudgetExhausted
+from cadmus.evaluation import build_report, paired_bootstrap
+from cadmus.inference import Classifier
+from cadmus.observability import EventEmitter
+from cadmus.policy import decide
+from cadmus.prompting import neutralize, render_evidence
+from cadmus.providers import ModelRequest, ModelResponse, TextPart
+from cadmus.registry import Registry, diff_bundles
+from cadmus.storage import ArtifactStore
+from cadmus.tasks import ClassificationTask, primary_score
 
 
 @dataclass(frozen=True)

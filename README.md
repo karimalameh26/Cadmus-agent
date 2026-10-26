@@ -27,7 +27,7 @@ Changing a prompt is easy. Knowing whether it actually got better is the hard pa
 > Prompt improvement, not model training. Model weights stay fixed. Classification needs no labeled dataset;
 > reliable improvement needs trusted labels and fresh independent test data. Improvement is never guaranteed.
 
-The project is **Cadmus Agent**; the package and CLI remain `ag-agent`, and the Python import is `ag_agent`.
+The package, CLI, and Python import all use `cadmus`.
 
 ## Quick Start
 
@@ -49,10 +49,10 @@ Omit `[files]` for JSON-only use. No API key yet? [Try the offline example](#try
 Replace `YOUR_MODEL` with a model or deployment available at your provider:
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent init --label invoice --label receipt --model YOUR_MODEL --reviewer karim
+.\.venv\Scripts\python -m cadmus init --label invoice --label receipt --model YOUR_MODEL --reviewer karim
 ```
 
-This creates `ag-agent.toml` without overwriting an existing config. Export `OPENAI_API_KEY` through your local shell
+This creates `cadmus.toml` without overwriting an existing config. Export `OPENAI_API_KEY` through your local shell
 or secret manager. Keys are not stored in the config, and `.env` files are not automatically loaded.
 
 Edit the config to define your labels in `task.instructions` and `task.baseline_guidance`, and map your input fields.
@@ -70,9 +70,9 @@ The default JSON mapping expects records like these in `records.json`:
 ```
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent doctor --check-connectivity
-.\.venv\Scripts\python -m ag_agent inputs preview records.json --limit 2
-.\.venv\Scripts\python -m ag_agent classify records.json --output predictions.json --summary-only
+.\.venv\Scripts\python -m cadmus doctor --check-connectivity
+.\.venv\Scripts\python -m cadmus inputs preview records.json --limit 2
+.\.venv\Scripts\python -m cadmus classify records.json --output predictions.json --summary-only
 ```
 
 The connectivity check makes one small billable request. Classification sends mapped evidence to your provider;
@@ -118,9 +118,9 @@ for the exact gates and [SECURITY.md](SECURITY.md) for data handling boundaries.
 ## SDK
 
 ```python
-from ag_agent import Framework, load_config
+from cadmus import Framework, load_config
 
-with Framework(load_config("ag-agent.toml")) as fw:
+with Framework(load_config("cadmus.toml")) as fw:
     batch = fw.classify(["records.json"])
     for result in batch["results"]:
         print(result["name"], result["labels"], result["status"])

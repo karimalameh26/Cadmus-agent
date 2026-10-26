@@ -10,4 +10,4 @@ build/
 .tmp/
 .env
 # runtime state: SQLite, artifacts, logs, predictions (may contain customer content)
-.ag-agent/
+.cadmus/

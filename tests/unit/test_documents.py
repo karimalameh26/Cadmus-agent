@@ -7,9 +7,9 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from ag_agent.config import AppConfig
-from ag_agent.inputs import DirectFileAdapter
-from ag_agent.storage import ArtifactStore
+from cadmus.config import AppConfig
+from cadmus.inputs import DirectFileAdapter
+from cadmus.storage import ArtifactStore
 from tests.conftest import base_config
 
 

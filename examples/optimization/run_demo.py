@@ -9,16 +9,16 @@ from __future__ import annotations
 import tempfile
 from pathlib import Path
 
-from ag_agent import Framework, load_config
-from ag_agent.demo import write_demo
-from ag_agent.observability import ConsoleSubscriber
+from cadmus import Framework, load_config
+from cadmus.demo import write_demo
+from cadmus.observability import ConsoleSubscriber
 
 
 def main() -> None:
-    work = Path(tempfile.mkdtemp(prefix="ag-agent-demo-"))
+    work = Path(tempfile.mkdtemp(prefix="cadmus-demo-"))
     write_demo(work, batch=1)
     write_demo(work, batch=2)
-    cfg = load_config(work / "ag-agent.toml")
+    cfg = load_config(work / "cadmus.toml")
     with Framework(cfg, subscribers=[ConsoleSubscriber(level="INFO")]) as fw:
         fw.import_dataset([work / "records_batch1.json"], verified_by="reviewer-1")
         snap = fw.snapshot()["snapshot_id"]
@@ -31,7 +31,7 @@ def main() -> None:
 
         result = fw.classify([work / "records_batch2.json"])
         print("classified:", result["counts"], "with", result["bundle_id"])
-        print("trace a run with: python -m ag_agent -c", work / "ag-agent.toml", "runs logs", second["run_id"])
+        print("trace a run with: python -m cadmus -c", work / "cadmus.toml", "runs logs", second["run_id"])
 
 
 if __name__ == "__main__":

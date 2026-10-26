@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 import re
 
-from ag_agent.contracts import EvidenceRecord, PromptBundle
-from ag_agent.providers import ImagePart, ModelRequest, TextPart
-from ag_agent.storage import ArtifactStore
-from ag_agent.tasks import ClassificationTask
+from cadmus.contracts import EvidenceRecord, PromptBundle
+from cadmus.providers import ImagePart, ModelRequest, TextPart
+from cadmus.storage import ArtifactStore
+from cadmus.tasks import ClassificationTask
 
 _RESERVED_TAGS = re.compile(r"<(/?)(document_evidence|example|evidence|answer|classification_guidance)\b", re.I)
 

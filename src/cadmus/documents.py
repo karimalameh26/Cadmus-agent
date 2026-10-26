@@ -6,10 +6,10 @@ import io
 from pathlib import Path
 from typing import Any
 
-from ag_agent.config import DocumentConfig
-from ag_agent.contracts import MediaRef, TextBlock
-from ag_agent.errors import ExtractionError
-from ag_agent.storage import ArtifactStore
+from cadmus.config import DocumentConfig
+from cadmus.contracts import MediaRef, TextBlock
+from cadmus.errors import ExtractionError
+from cadmus.storage import ArtifactStore
 
 TEXT_EXTENSIONS = {".txt", ".md"}
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"}
@@ -28,7 +28,7 @@ def _require(module: str) -> Any:
     try:
         return __import__(module)
     except ImportError:
-        raise ExtractionError(f"Optional dependency '{module}' is required; install 'ag-agent[files]'",
+        raise ExtractionError(f"Optional dependency '{module}' is required; install 'cadmus[files]'",
                               "dependency_missing") from None
 
 
@@ -143,7 +143,7 @@ def _extract_pdf(data: bytes, cfg: DocumentConfig, artifacts: ArtifactStore, out
         try:
             import pypdfium2 as pdfium
         except ImportError:
-            raise ExtractionError("Rendering scanned PDF pages requires pypdfium2 ('ag-agent[files]')",
+            raise ExtractionError("Rendering scanned PDF pages requires pypdfium2 ('cadmus[files]')",
                                   "pdf_render_unavailable") from None
         out.provenance["rendered_pages"] = [i + 1 for i in scanned]
         try:

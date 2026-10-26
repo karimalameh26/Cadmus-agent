@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import pytest
 
-from ag_agent.config import PolicyConfig, TaskConfig
-from ag_agent.contracts import Prediction, PredictionStatus, TaskKind
-from ag_agent.datasets import SnapshotItem
-from ag_agent.evaluation import build_report, paired_bootstrap
-from ag_agent.policy import decide
-from ag_agent.tasks import ClassificationTask, compute_metrics
+from cadmus.config import PolicyConfig, TaskConfig
+from cadmus.contracts import Prediction, PredictionStatus, TaskKind
+from cadmus.datasets import SnapshotItem
+from cadmus.evaluation import build_report, paired_bootstrap
+from cadmus.policy import decide
+from cadmus.tasks import ClassificationTask, compute_metrics
 
 S, A, INV = PredictionStatus.SUCCESS, PredictionStatus.ABSTAINED, PredictionStatus.INVALID_RESPONSE
 

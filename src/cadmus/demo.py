@@ -18,7 +18,7 @@ DESCRIPTIONS = ["scanned page with a logo and a table", "photo of a printed page
 
 DEMO_CONFIG = """# Demo configuration. Thresholds are demonstrations only, not recommendations for client data.
 client_id = "demo"
-data_dir = ".ag-agent"
+data_dir = ".cadmus"
 reviewers = ["reviewer-1", "reviewer-2"]
 
 [task]
@@ -88,7 +88,7 @@ def make_records(batch: int = 1, per_class: int = 30, seed: int = 7) -> list[dic
 def write_demo(directory: Path, batch: int = 1) -> dict[str, str]:
     directory.mkdir(parents=True, exist_ok=True)
     written: dict[str, str] = {}
-    cfg = directory / "ag-agent.toml"
+    cfg = directory / "cadmus.toml"
     if not cfg.exists():
         cfg.write_text(DEMO_CONFIG, encoding="utf-8")
         written["config"] = str(cfg)

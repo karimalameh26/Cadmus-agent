@@ -12,7 +12,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
-from ag_agent.contracts import EvidenceRecord, sha256_bytes
+from cadmus.contracts import EvidenceRecord, sha256_bytes
 
 MIGRATIONS: list[tuple[int, str]] = [
     (1, """

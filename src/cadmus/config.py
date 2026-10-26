@@ -9,8 +9,8 @@ from typing import Literal
 import tomli_w
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
 
-from ag_agent.contracts import InputMode, TaskKind, canonical_json, sha256_text
-from ag_agent.errors import ConfigError
+from cadmus.contracts import InputMode, TaskKind, canonical_json, sha256_text
+from cadmus.errors import ConfigError
 
 PIPELINE_VERSION = "1"
 
@@ -217,7 +217,7 @@ class LoggingConfig(_Strict):
 
 class AppConfig(_Strict):
     client_id: str = Field(pattern=r"^[A-Za-z0-9_-]{1,64}$")
-    data_dir: Path = Path(".ag-agent")
+    data_dir: Path = Path(".cadmus")
     reviewers: list[str] = Field(default_factory=list)
     task: TaskConfig
     input: InputConfig

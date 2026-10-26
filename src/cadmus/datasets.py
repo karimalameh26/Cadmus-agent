@@ -7,12 +7,12 @@ from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any
 
-from ag_agent.config import AppConfig
-from ag_agent.contracts import EvidenceRecord, canonical_json, sha256_text, utc_now
-from ag_agent.errors import AccessDenied, InputError, NotFound
-from ag_agent.observability import EventEmitter
-from ag_agent.storage import ArtifactStore, Store
-from ag_agent.tasks import ClassificationTask
+from cadmus.config import AppConfig
+from cadmus.contracts import EvidenceRecord, canonical_json, sha256_text, utc_now
+from cadmus.errors import AccessDenied, InputError, NotFound
+from cadmus.observability import EventEmitter
+from cadmus.storage import ArtifactStore, Store
+from cadmus.tasks import ClassificationTask
 
 SPLITS = ("development", "selection", "gate")
 

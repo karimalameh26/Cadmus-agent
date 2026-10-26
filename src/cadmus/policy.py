@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from ag_agent.config import PolicyConfig, TaskConfig
-from ag_agent.contracts import DecisionOutcome, EvaluationReport, GateResult, PromotionDecision
+from cadmus.config import PolicyConfig, TaskConfig
+from cadmus.contracts import DecisionOutcome, EvaluationReport, GateResult, PromotionDecision
 
 INSUFFICIENT_GATES = {"completeness", "gate_group_support", "critical_class_support"}
 

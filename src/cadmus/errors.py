@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 
-class AgAgentError(Exception):
+class CadmusError(Exception):
     code = "error"
     exit_code = 1
 
@@ -17,32 +17,32 @@ class AgAgentError(Exception):
         return {"code": self.code, "message": self.message}
 
 
-class ConfigError(AgAgentError):
+class ConfigError(CadmusError):
     code = "config_invalid"
     exit_code = 2
 
 
-class AccessDenied(AgAgentError):
+class AccessDenied(CadmusError):
     code = "access_denied"
     exit_code = 2
 
 
-class NotFound(AgAgentError):
+class NotFound(CadmusError):
     code = "not_found"
     exit_code = 2
 
 
-class InputError(AgAgentError):
+class InputError(CadmusError):
     code = "input_invalid"
     exit_code = 3
 
 
-class ExtractionError(AgAgentError):
+class ExtractionError(CadmusError):
     code = "extraction_error"
     exit_code = 3
 
 
-class ProviderError(AgAgentError):
+class ProviderError(CadmusError):
     code = "provider_error"
 
     def __init__(self, message: str, code: str | None = None, *, transient: bool = False,
@@ -53,15 +53,15 @@ class ProviderError(AgAgentError):
         self.request_id = request_id
 
 
-class BudgetExhausted(AgAgentError):
+class BudgetExhausted(CadmusError):
     code = "budget_exhausted"
 
 
-class AuditFailure(AgAgentError):
+class AuditFailure(CadmusError):
     code = "audit_write_failed"
     exit_code = 4
 
 
-class RunCancelled(AgAgentError):
+class RunCancelled(CadmusError):
     code = "cancelled"
     exit_code = 130

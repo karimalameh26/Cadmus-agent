@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 from typer.testing import CliRunner
 
-from ag_agent.cli import app
-from ag_agent.config import load_config
+from cadmus.cli import app
+from cadmus.config import load_config
 
 runner = CliRunner()
 
@@ -20,18 +20,18 @@ def test_initialize_real_project(tmp_path: Path, monkeypatch) -> None:
             "--reviewer", "reviewer-1"]
     result = runner.invoke(app, args)
     assert result.exit_code == 0, result.output
-    cfg = load_config("ag-agent.toml")
+    cfg = load_config("cadmus.toml")
     assert cfg.provider.kind == "openai_compatible"
     assert cfg.provider.model == "my-model"
     assert cfg.task.labels == ["invoice", "receipt"]
     assert cfg.input.json_records.label_field == "ground_truth"
     assert not cfg.policy.approved_for_live
-    assert list(tmp_path.iterdir()) == [tmp_path / "ag-agent.toml"]
-    original = (tmp_path / "ag-agent.toml").read_bytes()
+    assert list(tmp_path.iterdir()) == [tmp_path / "cadmus.toml"]
+    original = (tmp_path / "cadmus.toml").read_bytes()
     duplicate = runner.invoke(app, args)
     assert duplicate.exit_code == 2
     assert json.loads(duplicate.stdout)["error"]["code"] == "config_exists"
-    assert (tmp_path / "ag-agent.toml").read_bytes() == original
+    assert (tmp_path / "cadmus.toml").read_bytes() == original
 
 
 def test_initialize_direct_files_and_invalid_settings(tmp_path: Path, monkeypatch) -> None:
@@ -39,10 +39,10 @@ def test_initialize_direct_files_and_invalid_settings(tmp_path: Path, monkeypatc
     args = ["init", "--label", "invoice", "--model", "my-model", "--reviewer", "reviewer-1"]
     invalid = runner.invoke(app, [*args, "--mode", "unknown"])
     assert invalid.exit_code == 2
-    assert not (tmp_path / "ag-agent.toml").exists()
+    assert not (tmp_path / "cadmus.toml").exists()
     result = runner.invoke(app, [*args, "--mode", "direct_files"])
     assert result.exit_code == 0, result.output
-    cfg = load_config("ag-agent.toml")
+    cfg = load_config("cadmus.toml")
     assert cfg.input.roots == [tmp_path / "documents"]
     assert cfg.input.json_records is None
 

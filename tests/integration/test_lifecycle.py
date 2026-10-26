@@ -5,11 +5,11 @@ from pathlib import Path
 
 import pytest
 
-from ag_agent.contracts import PromptBundle
-from ag_agent.errors import AuditFailure, ProviderError
-from ag_agent.observability import EventEmitter
-from ag_agent.optimization import DevelopmentView, HeuristicProposer, Proposal
-from ag_agent.providers import FakeModel
+from cadmus.contracts import PromptBundle
+from cadmus.errors import AuditFailure, ProviderError
+from cadmus.observability import EventEmitter
+from cadmus.optimization import DevelopmentView, HeuristicProposer, Proposal
+from cadmus.providers import FakeModel
 from tests.conftest import write_records
 
 SECRET = "zzsecretpayloadzz"
@@ -262,7 +262,7 @@ def test_identical_content_under_different_names_shares_a_split(make_fw, tmp_pat
     fw.import_dataset([tmp_path / "r2.json"], verified_by="rev-1")
     snap = fw.snapshot()["snapshot_id"]
     by_doc = {i.document_id: i for i in fw.datasets.snapshot_items(snap)}
-    from ag_agent.inputs import document_id_for
+    from cadmus.inputs import document_id_for
     a, b = by_doc[document_id_for("acme", rows[0]["image_name"])], by_doc[document_id_for("acme", "renamed_copy.png")]
     assert a.family_id == b.family_id and a.split == b.split
 

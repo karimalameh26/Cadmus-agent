@@ -14,9 +14,9 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Any
 
-from ag_agent.config import TaskConfig
-from ag_agent.contracts import ClassMetrics, Prediction, PredictionStatus, TaskKind
-from ag_agent.errors import InputError
+from cadmus.config import TaskConfig
+from cadmus.contracts import ClassMetrics, Prediction, PredictionStatus, TaskKind
+from cadmus.errors import InputError
 
 _FENCE = re.compile(r"^```(?:json)?\s*|\s*```$", re.IGNORECASE)
 

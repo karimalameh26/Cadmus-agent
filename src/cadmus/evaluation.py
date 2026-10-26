@@ -8,9 +8,9 @@ from collections.abc import Sequence
 from statistics import median
 from typing import Any
 
-from ag_agent.contracts import INFRA_STATUSES, EvaluationReport, Prediction, PredictionStatus
-from ag_agent.datasets import SnapshotItem
-from ag_agent.tasks import ClassificationTask, compute_metrics, primary_score
+from cadmus.contracts import INFRA_STATUSES, EvaluationReport, Prediction, PredictionStatus
+from cadmus.datasets import SnapshotItem
+from cadmus.tasks import ClassificationTask, compute_metrics, primary_score
 
 
 def build_report(task: ClassificationTask, bundle_id: str, split: str, items: Sequence[SnapshotItem],

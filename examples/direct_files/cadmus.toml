@@ -1,6 +1,6 @@
 # Direct-file mode: the classifier reads actual local files under the allowed roots. No JSON manifest needed.
 client_id = "demo-files"
-data_dir = ".ag-agent"
+data_dir = ".cadmus"
 reviewers = ["reviewer-1"]
 
 [task]

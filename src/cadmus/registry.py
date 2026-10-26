@@ -6,9 +6,9 @@ import difflib
 import json
 from typing import Any
 
-from ag_agent.contracts import PromptBundle, utc_now
-from ag_agent.errors import InputError, NotFound
-from ag_agent.storage import Store
+from cadmus.contracts import PromptBundle, utc_now
+from cadmus.errors import InputError, NotFound
+from cadmus.storage import Store
 
 
 class Registry:

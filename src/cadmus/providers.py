@@ -15,9 +15,9 @@ from collections.abc import Callable
 from dataclasses import dataclass, field
 from typing import Any, Protocol
 
-from ag_agent.config import ProviderConfig
-from ag_agent.contracts import canonical_json, sha256_text
-from ag_agent.errors import ConfigError, ProviderError
+from cadmus.config import ProviderConfig
+from cadmus.contracts import canonical_json, sha256_text
+from cadmus.errors import ConfigError, ProviderError
 
 
 @dataclass

@@ -6,10 +6,10 @@ from typing import Any
 
 import pytest
 
-from ag_agent.config import AppConfig
-from ag_agent.demo import make_records
-from ag_agent.providers import FakeModel
-from ag_agent.runtime import Framework
+from cadmus.config import AppConfig
+from cadmus.demo import make_records
+from cadmus.providers import FakeModel
+from cadmus.runtime import Framework
 
 
 def base_config(tmp_path: Path, **overrides: Any) -> dict[str, Any]:

@@ -13,26 +13,26 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-from ag_agent.config import AppConfig
-from ag_agent.contracts import (
+from cadmus.config import AppConfig
+from cadmus.contracts import (
     INFRA_STATUSES,
     PredictionStatus,
     PromptBundle,
     utc_now,
 )
-from ag_agent.datasets import DatasetService
-from ag_agent.errors import AgAgentError, ConfigError, InputError, NotFound, ProviderError, RunCancelled
-from ag_agent.evaluation import build_report
-from ag_agent.inference import Budget, Classifier
-from ag_agent.inputs import InputItem, document_id_for, family_id_for, make_input_adapter
-from ag_agent.observability import EventEmitter, JsonlExporter, Subscriber, load_events, safe_error_code
-from ag_agent.optimization import HeuristicProposer, ModelProposer, OptimizationCycle, Proposer, baseline_bundle
-from ag_agent.policy import baseline_gates
-from ag_agent.prompting import render_evidence
-from ag_agent.providers import ModelAdapter, ModelRequest, ModelResponse, TextPart, make_model
-from ag_agent.registry import Registry, diff_bundles
-from ag_agent.storage import ArtifactStore, Store
-from ag_agent.tasks import ClassificationTask, compute_metrics
+from cadmus.datasets import DatasetService
+from cadmus.errors import CadmusError, ConfigError, InputError, NotFound, ProviderError, RunCancelled
+from cadmus.evaluation import build_report
+from cadmus.inference import Budget, Classifier
+from cadmus.inputs import InputItem, document_id_for, family_id_for, make_input_adapter
+from cadmus.observability import EventEmitter, JsonlExporter, Subscriber, load_events, safe_error_code
+from cadmus.optimization import HeuristicProposer, ModelProposer, OptimizationCycle, Proposer, baseline_bundle
+from cadmus.policy import baseline_gates
+from cadmus.prompting import render_evidence
+from cadmus.providers import ModelAdapter, ModelRequest, ModelResponse, TextPart, make_model
+from cadmus.registry import Registry, diff_bundles
+from cadmus.storage import ArtifactStore, Store
+from cadmus.tasks import ClassificationTask, compute_metrics
 
 TERMINAL_RUN_STATUSES = {"completed", "failed", "cancelled"}
 
@@ -107,18 +107,18 @@ class Framework:
             status = "completed"
         except (KeyboardInterrupt, RunCancelled):
             status, error = "cancelled", RunCancelled("Run cancelled by user")
-        except AgAgentError as exc:
+        except CadmusError as exc:
             error = exc
         except Exception as exc:  # unexpected defect: record safely, then re-raise for a traceback
             error = exc
         finally:
             duration = int((time.monotonic() - t0) * 1000)
             if error is not None:
-                message = error.message if isinstance(error, AgAgentError) else "Unexpected error"
+                message = error.message if isinstance(error, CadmusError) else "Unexpected error"
                 summary = {"error": {"code": safe_error_code(error), "message": message}}
             self.store.execute("UPDATE runs SET status=?, updated_at=?, summary=? WHERE run_id=?",
                                (status, utc_now(), json.dumps(summary, default=str), run_id))
-            with contextlib.suppress(AgAgentError):  # run status is already persisted
+            with contextlib.suppress(CadmusError):  # run status is already persisted
                 emitter.emit("run.completed" if status == "completed" else f"run.{status}", "run", status,
                              f"{kind} run {status}", "INFO" if status == "completed" else "ERROR",
                              duration_ms=duration, error_code=safe_error_code(error) if error else None)
@@ -260,7 +260,7 @@ class Framework:
                     recorded += 1
                     em.emit("label.recorded", "label_verification", "verified" if verified_by else "pending",
                             "Label recorded", document_id=doc, label_id=label_id, reviewer=verified_by)
-                except AgAgentError as exc:
+                except CadmusError as exc:
                     rejected += 1
                     em.emit("label.rejected", "label_verification", "rejected", f"Label row {i} rejected", "WARNING",
                             error_code=exc.code)
@@ -535,7 +535,7 @@ class Framework:
                 "ORDER BY rp.created_at", (self.cfg.client_id, champ, cutoff))
             latest = {r["document_id"]: json.loads(r["payload"]) for r in rows}
             labels, _, _ = self.datasets.active_labels()
-            from ag_agent.contracts import Prediction
+            from cadmus.contracts import Prediction
             preds = {d: Prediction.model_validate(p) for d, p in latest.items()}
             infra = [d for d, p in preds.items() if p.status in INFRA_STATUSES]
             eligible = [(labels[d], p) for d, p in preds.items() if d in labels and p.status not in INFRA_STATUSES]
@@ -581,7 +581,7 @@ class Framework:
                 return result
             try:
                 target = self.registry.rollback_target(self.compat_key, None)
-            except AgAgentError as exc:
+            except CadmusError as exc:
                 result["status"] = "regression_no_target"
                 em.emit("monitor.decision", "monitoring", "failed", "No compatible rollback target", "WARNING",
                         error_code=exc.code)
@@ -624,7 +624,7 @@ class Framework:
     def run_logs(self, run_id: str, *, stage: str | None = None, level: str = "DEBUG", event_type: str | None = None,
                  document_id: str | None = None, candidate_id: str | None = None, follow: bool = False,
                  poll_s: float = 1.0) -> Iterator[dict[str, Any]]:
-        from ag_agent.observability import LEVELS
+        from cadmus.observability import LEVELS
         self._run_row(run_id)
         last = 0
         while True:
@@ -725,7 +725,7 @@ class Framework:
                 deps[mod] = False
         checks["optional_dependencies"] = deps
         if self.cfg.input.mode.value == "direct_files" and not all(deps.values()):
-            checks["warning"] = "direct_files mode needs 'pip install ag-agent[files]' for images/PDFs"
+            checks["warning"] = "direct_files mode needs 'pip install cadmus[files]' for images/PDFs"
         p = self.cfg.provider
         checks["provider"] = {"kind": p.kind, "model": p.model, "supports_images": p.supports_images}
         if p.kind != "fake":

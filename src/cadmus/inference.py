@@ -11,8 +11,8 @@ from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Any
 
-from ag_agent.config import AppConfig, PricingConfig
-from ag_agent.contracts import (
+from cadmus.config import AppConfig, PricingConfig
+from cadmus.contracts import (
     CACHEABLE_STATUSES,
     EvidenceRecord,
     Prediction,
@@ -23,12 +23,12 @@ from ag_agent.contracts import (
     sha256_text,
     utc_now,
 )
-from ag_agent.errors import BudgetExhausted, NotFound, ProviderError, RunCancelled
-from ag_agent.observability import EventEmitter
-from ag_agent.prompting import compose_request
-from ag_agent.providers import ModelAdapter, model_hash
-from ag_agent.storage import ArtifactStore, Store
-from ag_agent.tasks import ClassificationTask
+from cadmus.errors import BudgetExhausted, NotFound, ProviderError, RunCancelled
+from cadmus.observability import EventEmitter
+from cadmus.prompting import compose_request
+from cadmus.providers import ModelAdapter, model_hash
+from cadmus.storage import ArtifactStore, Store
+from cadmus.tasks import ClassificationTask
 
 
 @dataclass

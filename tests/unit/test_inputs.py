@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from ag_agent.config import AppConfig
-from ag_agent.contracts import InputMode
-from ag_agent.inputs import JsonRecordAdapter
-from ag_agent.prompting import render_evidence
+from cadmus.config import AppConfig
+from cadmus.contracts import InputMode
+from cadmus.inputs import JsonRecordAdapter
+from cadmus.prompting import render_evidence
 from tests.conftest import base_config
 
 
@@ -62,7 +62,7 @@ def test_json_mode_never_opens_original_files_or_network(tmp_path: Path, monkeyp
     src.write_text(json.dumps([{"image_name": str(tmp_path / "real.png"), "ocr_text": "Receipt cashier"}]))
     (tmp_path / "real.png").write_bytes(b"not read")
     monkeypatch.setattr(Path, "read_bytes", lambda self: (_ for _ in ()).throw(AssertionError("file read")))
-    monkeypatch.setattr("ag_agent.inputs.extract_file", lambda *a, **k: (_ for _ in ()).throw(AssertionError()))
+    monkeypatch.setattr("cadmus.inputs.extract_file", lambda *a, **k: (_ for _ in ()).throw(AssertionError()))
     monkeypatch.setattr(socket, "socket", lambda *a, **k: (_ for _ in ()).throw(AssertionError("network")))
     [item] = list(adapter(tmp_path).load([src]))
     assert item.ok and not item.evidence.media

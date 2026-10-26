@@ -5,7 +5,7 @@
 [SDK](#sdk) · [Commands](#commands) · [Development](#development)
 
 Detailed configuration, evaluation and operational reference. Run shell commands from the **repository root**,
-not from this `docs/` directory. The package and CLI are `ag-agent`; the Python import is `ag_agent`.
+not from this `docs/` directory. The package and CLI are `cadmus`; the Python import is `cadmus`.
 
 ## Quick Start
 
@@ -18,7 +18,7 @@ python -m venv .venv
 .\.venv\Scripts\python -m pip install -e ".[files]"   # omit [files] for JSON-only use
 ```
 
-Run commands with `ag-agent ...` or, equivalently, `python -m ag_agent ...` (useful where policy blocks new
+Run commands with `cadmus ...` or, equivalently, `python -m cadmus ...` (useful where policy blocks new
 executables). Global options go before the command: `-c CONFIG`, `-v` (per-document events), `-q`, `--no-color`.
 
 The setup examples use the virtual environment's interpreter explicitly on Windows. On macOS/Linux, use
@@ -29,11 +29,11 @@ The setup examples use the virtual environment's interpreter explicitly on Windo
 Create a live configuration, not a demo. Replace `YOUR_MODEL` with a model or deployment available at your provider:
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent init --label invoice --label receipt --model YOUR_MODEL --reviewer karim
+.\.venv\Scripts\python -m cadmus init --label invoice --label receipt --model YOUR_MODEL --reviewer karim
 ```
 
-This writes `ag-agent.toml` in the current directory without overwriting an existing file or creating synthetic
-records. For another project, put `-c path/to/ag-agent.toml` before `init`. Use `--client-id` for client isolation,
+This writes `cadmus.toml` in the current directory without overwriting an existing file or creating synthetic
+records. For another project, put `-c path/to/cadmus.toml` before `init`. Use `--client-id` for client isolation,
 `--base-url` for another OpenAI-compatible endpoint, and `--api-key-env` to name its credential variable.
 
 Export `OPENAI_API_KEY` in your local shell or inject it through your secret manager. Credentials are never written
@@ -55,9 +55,9 @@ Edit `[task]` to define what each label means in `instructions` and `baseline_gu
 your actual OCR, description and metadata fields. Preview before sending client data to a model:
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent doctor --check-connectivity
-.\.venv\Scripts\python -m ag_agent inputs preview records.json --limit 2
-.\.venv\Scripts\python -m ag_agent classify records.json --output predictions.json --summary-only
+.\.venv\Scripts\python -m cadmus doctor --check-connectivity
+.\.venv\Scripts\python -m cadmus inputs preview records.json --limit 2
+.\.venv\Scripts\python -m cadmus classify records.json --output predictions.json --summary-only
 ```
 
 `doctor` exits with code 1 when storage, required dependencies, credentials, or the requested connectivity check fail.
@@ -71,9 +71,9 @@ For local images/PDFs/text, initialize a separate configuration with `--mode dir
 extra, and place your files under the generated `documents` allowed root (or change `input.roots`):
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent -c files.toml init --mode direct_files --label invoice --label receipt --model YOUR_MODEL --reviewer karim
-.\.venv\Scripts\python -m ag_agent -c files.toml inputs preview documents --limit 2
-.\.venv\Scripts\python -m ag_agent -c files.toml classify documents --output predictions.jsonl --output-format jsonl --summary-only
+.\.venv\Scripts\python -m cadmus -c files.toml init --mode direct_files --label invoice --label receipt --model YOUR_MODEL --reviewer karim
+.\.venv\Scripts\python -m cadmus -c files.toml inputs preview documents --limit 2
+.\.venv\Scripts\python -m cadmus -c files.toml classify documents --output predictions.jsonl --output-format jsonl --summary-only
 ```
 
 Exports refuse to overwrite existing files. JSON contains the full report; JSONL contains one prediction per line.
@@ -102,10 +102,10 @@ and cost limits. Set `policy.approved_for_live = true` only after reviewing thos
 false. Default thresholds are starting points, not certification of fitness for a client's workflow.
 
 ```powershell
-.\.venv\Scripts\python -m ag_agent dataset import reviewed-records.json --verified-by karim
-$snapshot = .\.venv\Scripts\python -m ag_agent dataset snapshot | ConvertFrom-Json
-$run = .\.venv\Scripts\python -m ag_agent optimize $snapshot.snapshot_id | ConvertFrom-Json
-.\.venv\Scripts\python -m ag_agent runs report $run.run_id
+.\.venv\Scripts\python -m cadmus dataset import reviewed-records.json --verified-by karim
+$snapshot = .\.venv\Scripts\python -m cadmus dataset snapshot | ConvertFrom-Json
+$run = .\.venv\Scripts\python -m cadmus optimize $snapshot.snapshot_id | ConvertFrom-Json
+.\.venv\Scripts\python -m cadmus runs report $run.run_id
 ```
 
 For direct files, import evidence first with `dataset import documents`, then import a separate label file with
@@ -124,16 +124,16 @@ Use your virtual environment's Python for these commands; `python` below assumes
 
 ```powershell
 cd examples/json_records
-python -m ag_agent config validate
-python -m ag_agent inputs preview records_batch1.json --limit 1          # exactly what the model sees
-python -m ag_agent dataset import records_batch1.json --verified-by reviewer-1
-python -m ag_agent dataset snapshot                                    # prints snapshot_id
-python -m ag_agent optimize <snapshot_id>                              # live progress on stderr
-python -m ag_agent runs report <run_id>                                # gates, costs, artifacts
-python -m ag_agent classify records_batch2.json --summary-only         # uses the champion
-python -m ag_agent dataset import records_batch2.json --verified-by reviewer-1
-python -m ag_agent dataset snapshot                                    # old gate data is retired
-python -m ag_agent optimize <new_snapshot_id>                           # may keep the current champion
+python -m cadmus config validate
+python -m cadmus inputs preview records_batch1.json --limit 1          # exactly what the model sees
+python -m cadmus dataset import records_batch1.json --verified-by reviewer-1
+python -m cadmus dataset snapshot                                    # prints snapshot_id
+python -m cadmus optimize <snapshot_id>                              # live progress on stderr
+python -m cadmus runs report <run_id>                                # gates, costs, artifacts
+python -m cadmus classify records_batch2.json --summary-only         # uses the champion
+python -m cadmus dataset import records_batch2.json --verified-by reviewer-1
+python -m cadmus dataset snapshot                                    # old gate data is retired
+python -m cadmus optimize <new_snapshot_id>                           # may keep the current champion
 ```
 
 </details>
@@ -174,7 +174,7 @@ expose_id = false                       # names are identifiers unless explicitl
 ```
 
 See [../examples/json_records/keyed.toml](../examples/json_records/keyed.toml) and
-[../examples/direct_files/ag-agent.toml](../examples/direct_files/ag-agent.toml). Malformed records, duplicate ids, wrong
+[../examples/direct_files/cadmus.toml](../examples/direct_files/cadmus.toml). Malformed records, duplicate ids, wrong
 field types, oversized fields and records with no usable evidence are rejected with per-item reason codes — never
 silently dropped.
 
@@ -261,13 +261,13 @@ Every run writes ordered, structured events to SQLite (authoritative) and `data_
 (rotating export, re-synced from the database after failures). Progress goes to stderr; results go to stdout as JSON.
 
 ```powershell
-python -m ag_agent runs list
-python -m ag_agent runs logs <run_id> --follow                      # works after the run ended too
-python -m ag_agent runs logs <run_id> --stage final_gate --format jsonl
-python -m ag_agent runs logs <run_id> --document <doc-id> --level DEBUG
-python -m ag_agent runs logs <run_id> --candidate r1c2
-python -m ag_agent runs report <run_id>                             # decision, request ledger, warnings, artifacts
-python -m ag_agent runs resume <run_id>                             # reuses completed predictions
+python -m cadmus runs list
+python -m cadmus runs logs <run_id> --follow                      # works after the run ended too
+python -m cadmus runs logs <run_id> --stage final_gate --format jsonl
+python -m cadmus runs logs <run_id> --document <doc-id> --level DEBUG
+python -m cadmus runs logs <run_id> --candidate r1c2
+python -m cadmus runs report <run_id>                             # decision, request ledger, warnings, artifacts
+python -m cadmus runs resume <run_id>                             # reuses completed predictions
 ```
 
 Event fields: `schema_version, event_id, timestamp (UTC), sequence, level, event_type, run_id, stage, status,
@@ -287,9 +287,9 @@ validation, `4` audit persistence failure (work stops, champion unchanged), `130
 ## SDK
 
 ```python
-from ag_agent import Framework, load_config
+from cadmus import Framework, load_config
 
-with Framework(load_config("ag-agent.toml"), subscribers=[print]) as fw:
+with Framework(load_config("cadmus.toml"), subscribers=[print]) as fw:
     batch = fw.classify(["records.json"])
     for result in batch["results"]:
         print(result["name"], result["labels"], result["status"])
@@ -298,9 +298,9 @@ with Framework(load_config("ag-agent.toml"), subscribers=[print]) as fw:
 With reviewed labels and an approved live policy, run the same improvement cycle from Python:
 
 ```python
-from ag_agent import Framework, load_config
+from cadmus import Framework, load_config
 
-with Framework(load_config("ag-agent.toml")) as fw:
+with Framework(load_config("cadmus.toml")) as fw:
     fw.import_dataset(["reviewed-records.json"], verified_by="karim")
     snapshot = fw.snapshot()
     decision = fw.optimize(snapshot["snapshot_id"])["decision"]
@@ -334,7 +334,7 @@ See [../SECURITY.md](../SECURITY.md) for data handling and deployment boundaries
 <summary>Package architecture</summary>
 
 ```text
-src/ag_agent/
+src/cadmus/
   contracts.py    typed models (evidence, predictions, bundles, reports, decisions)
   config.py       validated TOML config, compatibility/pipeline identities
   inputs.py       InputAdapter: JsonRecordAdapter, DirectFileAdapter
